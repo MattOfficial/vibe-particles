@@ -1,59 +1,70 @@
 {
-    "name": "vibe-particles",
-    "version": "0.1.0",
-    "description": "A framework-agnostic, plugin-based Canvas 2D particle physics engine.",
-    "author": "MattOfficial",
-    "license": "MIT",
-    "type": "module",
-    "main": "./dist/index.cjs",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js",
-            "require": "./dist/index.cjs"
-        },
-        "./react": {
-            "types": "./dist/react.d.ts",
-            "import": "./dist/react.js",
-            "require": "./dist/react.cjs"
-        }
+  "name": "vibe-particles",
+  "version": "0.1.0",
+  "description": "A framework-agnostic, plugin-based Canvas 2D particle physics engine.",
+  "author": "MattOfficial",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
-    "files": [
-        "dist"
-    ],
-    "scripts": {
-        "build": "npx tsup",
-        "dev": "npx tsup --watch",
-        "typecheck": "tsc --noEmit"
-    },
-    "devDependencies": {
-        "@types/react": "^18.3.0",
-        "react": "^18.3.0",
-        "tsup": "^8.0.0",
-        "typescript": "^5.5.0"
-    },
-    "peerDependencies": {
-        "react": ">=18.0.0"
-    },
-    "peerDependenciesMeta": {
-        "react": {
-            "optional": true
-        }
-    },
-    "keywords": [
-        "particles",
-        "canvas",
-        "animation",
-        "physics",
-        "vibe",
-        "interactive",
-        "background",
-        "dot-matrix"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/MattOfficial/vibe-particles"
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js",
+      "require": "./dist/react.cjs"
     }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npx tsup",
+    "dev": "npx tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "husky": "^9.1.7",
+    "jsdom": "^28.1.0",
+    "lint-staged": "^16.3.3",
+    "react": "^18.3.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^4.0.18"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "particles",
+    "canvas",
+    "animation",
+    "physics",
+    "vibe",
+    "interactive",
+    "background",
+    "dot-matrix"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattOfficial/vibe-particles"
+  }
 }
