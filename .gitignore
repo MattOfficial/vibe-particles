@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+docs/node_modules/
+
+# Build outputs
+dist/
+docs/dist/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# package-lock for workspaces (keep root lock)
+docs/package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
