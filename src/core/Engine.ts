@@ -118,9 +118,23 @@ export class VibeEngine {
 
     public applyPreset(preset: Preset): void {
         if (preset.rgb) this.rgb = preset.rgb;
+        if (preset.colorPalette) {
+            this.colorPalette = preset.colorPalette;
+            this.recolorizeParticles();
+        }
         this.setPhysics(preset.physics);
         this.setRenderer(preset.renderer);
         this.setInteraction(preset.interaction);
+    }
+
+    private recolorizeParticles(): void {
+        for (const p of this.particles) {
+            if (this.colorPalette && this.colorPalette.length > 0) {
+                p.color = this.colorPalette[Math.floor(Math.random() * this.colorPalette.length)];
+            } else {
+                p.color = undefined;
+            }
+        }
     }
 
     public getContext(): EngineContext {
@@ -173,8 +187,15 @@ export class VibeEngine {
     private resize(): void {
         this.width = window.innerWidth;
         this.height = window.innerHeight;
-        this.canvas.width = this.width;
-        this.canvas.height = this.height;
+
+        const dpr = window.devicePixelRatio || 1;
+        this.canvas.width = this.width * dpr;
+        this.canvas.height = this.height * dpr;
+
+        // Enforce logical size via CSS so internal DPR scaling works correctly
+        this.canvas.style.width = `${this.width}px`;
+        this.canvas.style.height = `${this.height}px`;
+
         if (this.mouse.x === 0 && this.mouse.y === 0) {
             this.mouse.x = this.width / 2;
             this.mouse.y = this.height / 2;
@@ -207,6 +228,10 @@ export class VibeEngine {
 
         const ctx2d = this.ctx;
         const engineCtx = this.getContext();
+        const dpr = window.devicePixelRatio || 1;
+
+        // Reset transform to cover full canvas, then scale down by DPR
+        ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
 
         // --- Before-frame hook (e.g. trail clearing) ---
         if (this.renderer?.beforeFrame) {

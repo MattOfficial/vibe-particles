@@ -16,6 +16,7 @@ HTMLCanvasElement.prototype.getContext = () => {
         scale: vi.fn(),
         translate: vi.fn(),
         rotate: vi.fn(),
+        setTransform: vi.fn(),
         globalCompositeOperation: 'source-over',
         globalAlpha: 1,
         fillStyle: '',

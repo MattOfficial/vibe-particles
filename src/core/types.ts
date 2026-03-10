@@ -87,6 +87,8 @@ export interface Preset {
     renderer: RendererPlugin;
     interaction: InteractionPlugin;
     rgb?: RGB;
+    /** Optional override for the engine's particle color palette. Useful for forcing monochromatic effects. */
+    colorPalette?: string[];
 }
 
 // --- Engine Options -----------------------------------------
