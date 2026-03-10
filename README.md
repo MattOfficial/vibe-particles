@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/MattOfficial/vibe-particles/main/docs/public/logo.png" width="120" alt="vibe-particles logo" />
   <h1>vibe-particles ✦</h1>
 
   <p>
